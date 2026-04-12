@@ -1,0 +1,36 @@
+.menu-table {
+  width: 100%;
+  margin-top: 20px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  border-collapse: collapse;
+  color: var(--color-text-main);
+  border: 1px solid var(--border-color);
+}
+
+.menu-table th,
+.menu-table td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.menu-table th {
+  background: var(--color-primary);
+  color: white;
+}
+
+.menu-table tr:nth-child(even) {
+  background: var(--bg-app);
+}
+
+.available {
+  color: green;
+  font-weight: bold;
+}
+
+.unavailable {
+  color: red;
+  font-weight: bold;
+}

@@ -1,0 +1,141 @@
+/* =========================================
+   ANALYTICS PAGE STYLING
+   ========================================= */
+
+.analytics-page {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Stats Grid (4 columns) */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Chart Cards Generic */
+.chart-card {
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chart-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--color-primary);
+}
+
+.chart-card h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.15rem;
+  color: var(--color-text-main);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* performer-card styling */
+.performer-card {
+  min-height: 400px;
+}
+
+.performer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.performer-item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem;
+  background: var(--bg-app);
+  border-radius: 16px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.performer-item:hover {
+  background: var(--card-bg);
+  border-color: var(--color-primary-light);
+  transform: scale(1.02);
+  box-shadow: var(--shadow-soft);
+}
+
+.performer-rank {
+  flex-shrink: 0;
+}
+
+.rank-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: var(--border-color);
+  color: var(--color-text-muted);
+}
+
+.rank-1 { background: #FFD700 !important; color: #000 !important; box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+.rank-2 { background: #C0C0C0 !important; color: #000 !important; }
+.rank-3 { background: #CD7F32 !important; color: #fff !important; }
+
+.performer-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.performer-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.performer-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.performer-name {
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.performer-detail {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.performer-trend {
+  color: var(--status-success-text);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.no-data-placeholder {
+  text-align: center;
+  padding: 2rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}

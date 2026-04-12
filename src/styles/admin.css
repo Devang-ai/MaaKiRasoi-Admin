@@ -1,0 +1,74 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--bg-app);
+  color: var(--color-text-main);
+}
+
+/* Layout */
+.app-layout {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--bg-sidebar);
+  padding: 20px;
+  border-right: 1px solid var(--border-color);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ff6b00;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  color: var(--color-text-main);
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+  background-color: #fff1e6;
+  color: #ff6b00;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 24px;
+}
+
+.header {
+  background: var(--card-bg);
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--card-shadow);
+  color: var(--color-text-main);
+}
+
+.dashboard-title {
+  font-size: 22px;
+  font-weight: 600;
+}

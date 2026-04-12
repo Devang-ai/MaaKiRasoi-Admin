@@ -1,0 +1,543 @@
+/* =========================================
+   1. CAREER ANALYTICS THEME (Soft Pastel)
+   ========================================= */
+
+/* =========================================
+   2. FLEET RADAR STYLING
+   ========================================= */
+
+.fleet-radar-card {
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+  padding: var(--spacing-l);
+  margin-bottom: var(--spacing-xl);
+}
+
+.fleet-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-m);
+  margin-bottom: var(--spacing-l);
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-s);
+  background: var(--bg-app);
+  border-radius: var(--radius-s);
+}
+
+.stat-label {
+  font-weight: 600;
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+.stat-value {
+  font-weight: 700;
+  color: var(--color-text-main);
+  font-size: 18px;
+}
+
+.stat-label.online {
+  color: var(--status-success-text);
+}
+
+.stat-label.offline {
+  color: var(--status-danger-text);
+}
+
+.stat-label.delivering {
+  color: var(--color-primary);
+}
+
+.map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-m);
+}
+
+.map-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-m);
+}
+
+.map-btn {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: var(--spacing-s) var(--spacing-m);
+  border-radius: var(--radius-m);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.map-btn:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.last-update {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.riders-map {
+  background: var(--bg-app);
+  border-radius: var(--card-radius);
+  border: 2px solid var(--border-color);
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.no-riders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--color-text-muted);
+}
+
+.no-riders-icon {
+  font-size: 48px;
+  margin-bottom: var(--spacing-m);
+  opacity: 0.5;
+}
+
+.rider-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  animation: riderPulse 2s infinite;
+}
+
+.rider-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 6px rgba(255, 107, 0, 0.3);
+}
+
+.rider-avatar {
+  width: 32px;
+  height: 32px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 12px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.rider-info {
+  text-align: left;
+  min-width: 120px;
+}
+
+.rider-info strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.rider-status {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.rider-vehicle {
+  display: block;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+@keyframes riderPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* =========================================
+   3. GLOBAL LAYOUT OVERRIDES (Targeting App Shell)
+   ========================================= */
+/* relying on index.css for global tokens */
+
+/* =========================================
+   2. GLOBAL LAYOUT OVERRIDES (Targeting App Shell)
+   ========================================= */
+
+/* Force body background to match theme */
+body {
+  background-color: var(--bg-app);
+  font-family: 'Poppins', 'Inter', sans-serif;
+  /* Soft, geometric font */
+  color: var(--color-text-main);
+  margin: 0;
+}
+
+/* Target the layout container from AdminLayout */
+.flex.h-screen {
+  background-color: var(--bg-app);
+}
+
+/* --- Sidebar Overrides --- */
+/* We target the div that likely holds the sidebar based on generic classes/structure since we can't edit JSX */
+.w-64.bg-white {
+  background-color: var(--bg-sidebar) !important;
+  border-right: none !important;
+  /* Remove harsh border */
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.02);
+  /* Soft separation */
+  z-index: 10;
+}
+
+/* Sidebar Links */
+nav a {
+  border-radius: 12px;
+  margin-bottom: 4px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  color: var(--color-text-muted);
+}
+
+nav a:hover {
+  background-color: var(--bg-app) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Active State Override */
+nav a.bg-blue-600 {
+  background-color: var(--color-primary-light) !important;
+  color: var(--color-primary) !important;
+}
+
+/* =========================================
+   3. DASHBOARD CONTENT
+   ========================================= */
+.dashboard {
+  padding: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Header */
+.dashboard-header {
+  margin-bottom: 2.5rem;
+}
+
+.dashboard-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.dashboard-header p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.db-info {
+  background: var(--color-primary-light);
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+}
+
+.db-info .label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+
+.db-info .value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+/* =========================================
+   4. STATS CARDS (Soft & Rounded)
+   ========================================= */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  padding: 1.75rem;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-icon {
+  font-size: 24px;
+  margin-bottom: 0.75rem;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 107, 0, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--color-primary);
+}
+
+.stat-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Trend Pills */
+.stat-positive,
+.stat-negative {
+  display: inline-flex;
+  margin-top: 1rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.stat-positive {
+  background-color: var(--status-success-bg);
+  color: var(--status-success-text);
+}
+
+.stat-positive::before {
+  content: '↑ ';
+  margin-right: 2px;
+}
+
+.stat-negative {
+  background-color: var(--status-danger-bg);
+  color: var(--status-danger-text);
+}
+
+.stat-negative::before {
+  content: '↓ ';
+  margin-right: 2px;
+}
+
+/* =========================================
+   5. RECENT ACTIVITY (Table as Card)
+   ========================================= */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: 0;
+  /* Let children handle padding */
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.card-title {
+  padding: 1.5rem 2rem;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--bg-app);
+  color: var(--color-text-main);
+}
+
+.activity-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0.5rem;
+}
+
+.activity-table th {
+  text-align: left;
+  padding: 1rem 2rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  border-bottom: 1px solid var(--bg-app);
+}
+
+.activity-table td {
+  padding: 1.25rem 2rem;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--bg-app);
+  font-size: 0.9rem;
+  color: var(--color-text-main);
+}
+
+.activity-table tbody tr {
+  transition: background-color 0.2s;
+}
+
+.activity-table tbody tr:hover {
+  background-color: #fbfbfc;
+}
+
+.activity-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Table Typo refinement */
+.activity-table td:first-child {
+  font-weight: 600;
+}
+
+.activity-table td:nth-child(2) {
+  color: var(--color-text-muted);
+}
+
+.activity-table td:last-child {
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* =========================================
+   6. RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 1rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .activity-table th,
+  .activity-table td {
+    padding: 1rem;
+  }
+
+  .card {
+    overflow-x: auto;
+  }
+}
+
+/* =========================================
+   7. REFINEMENT & POLISH (High Fidelity)
+   ========================================= */
+.stat-card.premium {
+  background: linear-gradient(135deg, var(--color-primary), #a855f7);
+  color: white;
+  border: none;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+}
+
+.stat-card.premium h3, 
+.stat-card.premium .stat-title {
+  color: white !important;
+}
+
+.trend {
+  font-size: 0.75rem;
+  margin-top: 0.75rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.trend.positive {
+  color: #4ade80;
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 1px;
+}
+
+.live-indicator .dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  animation: pulse-dot 1.5s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.type-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.type-badge.new-order { background: #dcfce7; color: #15803d; }
+.type-badge.subscription { background: #e0e7ff; color: #4338ca; }
+.type-badge.update { background: #fef9c3; color: #a16207; }
+.type-badge.cancellation { background: #fee2e2; color: #b91c1c; }
+
+body[data-theme="dark"] .type-badge.new-order { background: rgba(21, 128, 61, 0.2); }
+body[data-theme="dark"] .type-badge.subscription { background: rgba(67, 56, 202, 0.2); }
+
+/* relying on index.css for dark mode variables */
