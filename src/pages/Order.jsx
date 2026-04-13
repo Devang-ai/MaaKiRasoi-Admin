@@ -28,7 +28,7 @@ export default function Orders() {
       const statusParam = mappedStatus !== "All" ? mappedStatus : null;
       const res = await orderAPI.getAll(statusParam); 
       console.log('Orders API Response:', res.data); // Debug log
-      setOrders(res.data);
+      setOrders(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       setError("Failed to fetch orders");
     } finally {
