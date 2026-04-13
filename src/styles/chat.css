@@ -41,7 +41,7 @@ body[data-theme="dark"] {
 }
 
 .whatsapp-main-page {
-    height: calc(100vh - 120px);
+    height: calc(100vh - 80px); /* Adjusted to fill more vertical space */
     padding: 0;
     overflow: hidden;
     background-color: var(--wa-chat-bg);
