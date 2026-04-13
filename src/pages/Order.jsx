@@ -21,8 +21,13 @@ export default function Orders() {
     // setLoading(true); // Don't show full loading for background updates
     setError(null); 
     try {
-      const statusParam = activeStatus !== "All" ? activeStatus : null;
+      // Map frontend "Pending" filter to backend "placed" status
+      const mappedStatus = activeStatus === "Pending" ? "placed" : 
+                           activeStatus === "Out for Delivery" ? "out_for_delivery" :
+                           activeStatus;
+      const statusParam = mappedStatus !== "All" ? mappedStatus : null;
       const res = await orderAPI.getAll(statusParam); 
+      console.log('Orders API Response:', res.data); // Debug log
       setOrders(res.data);
     } catch (err) {
       setError("Failed to fetch orders");
@@ -142,9 +147,14 @@ export default function Orders() {
   };
 
   const filtered = orders.filter((order) => {
-    const matchesSearch = order.customer.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (order.orderId && order.orderId.toLowerCase().includes(searchTerm.toLowerCase())) ||
-      order._id.includes(searchTerm);
+    if (!order) return false;
+    
+    const custName = order.customer || "";
+    const orderIdent = order.orderId || order._id || "";
+    
+    const matchesSearch = custName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      orderIdent.toLowerCase().includes(searchTerm.toLowerCase());
+      
     const matchesDate = !date || new Date(order.createdAt).toLocaleDateString() === new Date(date).toLocaleDateString();
     return matchesSearch && matchesDate;
   });
