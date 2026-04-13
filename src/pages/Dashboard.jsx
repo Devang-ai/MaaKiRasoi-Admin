@@ -101,6 +101,11 @@ export default function Dashboard() {
                         <h3>{stats.users || '0'}</h3>
                     </div>
                     <div className="stat-card">
+                        <div className="stat-icon">🍽️</div>
+                        <p className="stat-title">Total Restaurants</p>
+                        <h3>{stats.restaurants || '0'}</h3>
+                    </div>
+                    <div className="stat-card">
                         <div className="stat-icon">📦</div>
                         <p className="stat-title">Total Orders</p>
                         <h3>{stats.orders || '0'}</h3>
